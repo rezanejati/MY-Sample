@@ -1,14 +1,14 @@
-package nejati.me.service.listener
+package nejati.me.service.listener;
 
-interface OnServiceStatus<T> {
+public interface OnServiceStatus<T> {
 
     /**
      * @param t the object when service have a response
      */
-    fun onReady(t: T)
+    void onReady(T t,int statusCode);
 
     /**
      * @param message  the message when service have an error
      */
-    fun onError(message: String)
+    void onError(String message);
 }

@@ -44,11 +44,10 @@ abstract class BasePart
                 override fun onSubscribe(d: Disposable) {}
 
                 override fun onNext(value: Response<T>) {
-                    listener.onReady(value.body())
+                    listener.onReady(value.body(), value.code())
                 }
 
                 override fun onError(e: Throwable) {
-                    e.printStackTrace()
                     listener.onError(e.message)
                 }
 

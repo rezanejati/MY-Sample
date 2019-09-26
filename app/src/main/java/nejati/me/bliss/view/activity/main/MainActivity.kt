@@ -1,8 +1,8 @@
-package nejati.me.bliss
+package nejati.me.bliss.view.activity.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import nejati.me.bliss.R
 
 class MainActivity : AppCompatActivity() {
 
