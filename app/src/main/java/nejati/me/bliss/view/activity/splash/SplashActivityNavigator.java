@@ -8,9 +8,8 @@ import android.content.Intent;
  * Copyright © 2017
  */
 public interface SplashActivityNavigator {
-    void showProgress();
-    void hideProgress();
-    void goToMainActivity();
+    void onServerSuccess();
     void onServerError();
+    void onLoadingLayout();
 
 }
