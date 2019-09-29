@@ -14,7 +14,7 @@ class BaseApplication : Application() {
         val mNetComponent = DaggerNetComponent.builder()
             .netModule(NetModule(Const.BASEURl))
             .build()
-        SingletonService.getInstance().setNetComponent(mNetComponent).inject()
+        SingletonService.instance.setNetComponent(mNetComponent).inject()
         DaggerViewModelComponent.builder()
             .application(this)
             .build()

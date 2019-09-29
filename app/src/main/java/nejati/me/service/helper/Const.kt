@@ -8,5 +8,11 @@ object Const {
     //Url: Get Health Status
     const val HEALTH: String = "health";
 
+    //Url: Get List Question
+    const val QUESTIONS: String = "questions";
+
+    //Url: Get Question Detail
+    const val QUESTIONSDETAIL: String = "questions";
+
 }
 

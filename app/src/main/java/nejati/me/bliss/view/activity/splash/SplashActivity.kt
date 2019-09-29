@@ -1,66 +1,61 @@
 package nejati.me.bliss.view.activity.splash
 
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
-import android.widget.Toast
-import com.airbnb.lottie.LottieDrawable
 import nejati.me.bliss.BR
 
 
 import nejati.me.bliss.R
 import nejati.me.bliss.base.BaseActivity
 import nejati.me.bliss.databinding.ActivitySplashBinding
-import nejati.me.bliss.view.activity.main.MainActivity
+import nejati.me.bliss.view.activity.question.QuestionsListActivity
 import nejati.me.bliss.viewModel.splash.SplashViewModel
 
-class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(),
+class SplashActivity(override var bindingVariable: Int=BR.viewModel,
+                     override var layoutRes: Int=R.layout.activity_splash)
+    : BaseActivity<ActivitySplashBinding, SplashViewModel>(),
     SplashActivityNavigator {
+
+
+
+
     override fun onLoadingLayout() {
-        viewModel.showRertryLayout.set(false)
-        dataBinding.lvLoading.setAnimation("lottie/loading.json")
-        dataBinding.lvLoading.playAnimation()
+        viewModel!!.showRertryLayout.set(false)
 
 
     }
 
 
     override fun onServerError() {
-        viewModel.showRertryLayout.set(true)
-        dataBinding.lvLoading.setAnimation("lottie/oops.json")
-        dataBinding.lvLoading.playAnimation()
+        viewModel!!.showRertryLayout.set(true)
 
 
     }
 
     override fun onServerSuccess() {
-        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-        this.finish()
+        Handler().postDelayed({
+            startActivity(Intent(this@SplashActivity, QuestionsListActivity::class.java))
+            this.finish()
+        }, 4000)
+
+
 
     }
 
-    override fun getBindingVariable(): Int {
-        return BR.viewModel
-
-    }
 
     override fun getViewModel(): Class<SplashViewModel> {
         return SplashViewModel::class.java
     }
 
 
-    override fun getLayoutRes(): Int {
-        return R.layout.activity_splash
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.navigator = this
+        viewModel!!.navigator = this
         onLoadingLayout()
-        Handler().postDelayed({ viewModel.callHealthStatusApi() }, 4000)
+        Handler().postDelayed({ viewModel!!.callHealthStatusApi() }, 4000)
 
 
     }

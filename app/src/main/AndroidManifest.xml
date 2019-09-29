@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nejati.me.bliss">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -11,8 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.main.MainActivity"/>
-        <activity android:name=".view.activity.splash.SplashActivity"
+        <activity android:name=".view.activity.detail.DetailQuestionActivity"></activity>
+        <activity
+            android:name=".view.activity.question.QuestionsListActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".view.activity.splash.SplashActivity"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
