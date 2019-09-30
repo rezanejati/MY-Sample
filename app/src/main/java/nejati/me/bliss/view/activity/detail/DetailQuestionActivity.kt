@@ -17,18 +17,21 @@ import nejati.me.bliss.viewModel.detail.DetailViewModel
 
 class DetailQuestionActivity(
     override var bindingVariable: Int = BR.viewModel,
-    override var layoutRes: Int = R.layout.activity_detail_question
-) :
+    override var layoutRes: Int = R.layout.activity_detail_question) :
     BaseActivity<ActivityDetailQuestionBinding, DetailViewModel>(), DetailQuestionNavigator {
-    override fun onServerSuccess() {
 
+    override fun onShowProgress() {
+        viewModel!!.showProgressLayout.set(true)
+        viewModel!!.showRertryLayout.set(false)    }
+
+    override fun onHideProgress() {
+        viewModel!!.showProgressLayout.set(false)
     }
 
     override fun onServerError() {
+        viewModel!!.showRertryLayout.set(true)
     }
 
-    override fun onLoadingLayout() {
-    }
 
     override fun getViewModel(): Class<DetailViewModel> {
         return DetailViewModel::class.java
@@ -40,8 +43,9 @@ class DetailQuestionActivity(
         super.onCreate(savedInstanceState)
         viewModel!!.navigator = this
         getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true);
-        Toast.makeText(this, intent.extras!!.getInt("question_list_id").toString(), Toast.LENGTH_SHORT).show()
-
+        viewModel!!.questionIdText.set("Question ID: "+intent.extras!!.getInt("question_list_id"))
+        viewModel!!.questionId.set(intent.extras!!.getInt("question_list_id"))
+        viewModel!!.callDetailQuestionApi(viewModel!!.questionId.get()!!)
 
     }
 
@@ -51,15 +55,24 @@ class DetailQuestionActivity(
             finish()
         }
         if (id == R.id.btnShare) {
-            val sharingIntent = Intent(Intent.ACTION_SEND)
-            sharingIntent.type = "text/plain"
-            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject")
-            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "test")
-            startActivity(
-                Intent.createChooser(sharingIntent, "share").addFlags(
-                    Intent.FLAG_ACTIVITY_NEW_TASK
+            if (viewModel!!.detailQ.get() != null) {
+                val sharingIntent = Intent(Intent.ACTION_SEND)
+                sharingIntent.type = "text/plain"
+                sharingIntent.putExtra(
+                    android.content.Intent.EXTRA_SUBJECT,
+                    "This is Question Detail"
                 )
-            )
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, viewModel!!.detailQ.get())
+                startActivity(
+                    Intent.createChooser(sharingIntent, "share").addFlags(
+                        Intent.FLAG_ACTIVITY_NEW_TASK
+                    )
+                )
+            } else {
+                Toast.makeText(this, "There is nothing content", Toast.LENGTH_SHORT).show()
+
+            }
+
 
         }
         return super.onOptionsItemSelected(item)

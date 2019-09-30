@@ -10,11 +10,6 @@ import nejati.me.bliss.databinding.ChoiceListItemBinding
 import nejati.me.bliss.viewModel.questionList.choices.ChoicesItemViewModel
 import nejati.me.service.model.questionsModel.response.Choice
 
-/**
- * Authors:
- * Reza Nejati <reza.n.j.t.i></reza.n.j.t.i>@gmail.com>
- * Copyright © 2017
- */
 class ChoiceListAdapter(private val questionItems: MutableList<Choice>?) :
     BaseAdapter<BaseViewHolder, Choice>() {
 

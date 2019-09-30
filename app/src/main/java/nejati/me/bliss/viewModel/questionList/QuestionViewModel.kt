@@ -11,6 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import nejati.me.bliss.base.BaseViewModel
+import nejati.me.bliss.base.StaticValue
 import nejati.me.bliss.view.activity.question.QuestionsListActivityNavigator
 import nejati.me.service.generator.SingletonService
 import nejati.me.service.listener.OnServiceStatus
@@ -66,15 +67,9 @@ class QuestionViewModel : BaseViewModel<QuestionsListActivityNavigator>(),
      * @param statusCode Http Status Code
      */
     override fun onReady(t: ArrayList<QuestionsResponse>, statusCode: Int) {
-        Handler().postDelayed({ navigator!!.onHideProgress() }, 5000)
+        Handler().postDelayed({ navigator!!.onHideProgress() }, StaticValue.LoadingTime)
 
         if (statusCode == 200) {
-                  val response = QuestionsResponse()
-                  response.choices = null
-                  response.id = 24
-                  response.publishedAt = "test"
-                  response.question = "salam"
-                  t.add(response)
             if(questionResponse.size>0){
                 questionResponse.clear()
             }
@@ -83,7 +78,7 @@ class QuestionViewModel : BaseViewModel<QuestionsListActivityNavigator>(),
 
 
         } else {
-            Handler().postDelayed({ navigator!!.onServerError() }, 5000)
+            Handler().postDelayed({ navigator!!.onServerError() }, StaticValue.LoadingTime)
         }
     }
 

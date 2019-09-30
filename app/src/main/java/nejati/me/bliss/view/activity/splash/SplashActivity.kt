@@ -8,9 +8,11 @@ import nejati.me.bliss.BR
 
 import nejati.me.bliss.R
 import nejati.me.bliss.base.BaseActivity
+import nejati.me.bliss.base.StaticValue
 import nejati.me.bliss.databinding.ActivitySplashBinding
 import nejati.me.bliss.view.activity.question.QuestionsListActivity
 import nejati.me.bliss.viewModel.splash.SplashViewModel
+import nejati.me.service.helper.Const
 
 class SplashActivity(override var bindingVariable: Int=BR.viewModel,
                      override var layoutRes: Int=R.layout.activity_splash)
@@ -55,7 +57,7 @@ class SplashActivity(override var bindingVariable: Int=BR.viewModel,
         super.onCreate(savedInstanceState)
         viewModel!!.navigator = this
         onLoadingLayout()
-        Handler().postDelayed({ viewModel!!.callHealthStatusApi() }, 4000)
+        Handler().postDelayed({ viewModel!!.callHealthStatusApi() }, StaticValue.SplashTime*1000)
 
 
     }

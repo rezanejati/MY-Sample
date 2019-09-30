@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 import dagger.Module
 import dagger.Provides
+import nejati.me.bliss.base.StaticValue
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -39,9 +40,9 @@ class NetModule
     @Singleton
     internal fun provideOkhttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()
-        client.connectTimeout(30, TimeUnit.SECONDS)
-        client.readTimeout(30, TimeUnit.SECONDS)
-        client.writeTimeout(30, TimeUnit.SECONDS)
+        client.connectTimeout(StaticValue.TimeOut, TimeUnit.SECONDS)
+        client.readTimeout(StaticValue.TimeOut, TimeUnit.SECONDS)
+        client.writeTimeout(StaticValue.TimeOut, TimeUnit.SECONDS)
         return client.build()
     }
 

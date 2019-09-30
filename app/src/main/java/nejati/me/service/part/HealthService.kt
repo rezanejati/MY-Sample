@@ -25,8 +25,18 @@ class HealthService(serviceGenerator: ServiceGenerator) : BasePart(serviceGenera
      */
     fun questionsListService(
         listener: OnServiceStatus<ArrayList<QuestionsResponse>>,
-        questionFilter: String
-    ) {
+        questionFilter: String) {
         start(serviceGenerator.createService().questions(questionFilter), listener)
+    }
+
+
+    /**
+     * @param listener
+     * @param questionId Id Of Question
+     */
+    fun questionsDetailService(
+        listener: OnServiceStatus<ArrayList<QuestionsResponse>>,
+        questionId: Int) {
+        start(serviceGenerator.createService().questionsDetail(questionId), listener)
     }
 }

@@ -69,7 +69,7 @@ class SplashViewModel : BaseViewModel<SplashActivityNavigator>(),
     }
 
     /**
-     *HealthStatus Api
+     * HealthStatus Api
      */
     fun callHealthStatusApi() {
         SingletonService.instance.healthService().healthStatusService(this)

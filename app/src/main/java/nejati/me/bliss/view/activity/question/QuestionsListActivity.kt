@@ -20,6 +20,7 @@ import nejati.me.service.model.questionsModel.response.QuestionsResponse
 class QuestionsListActivity(override var bindingVariable: Int=BR.viewModel,
                             override var layoutRes: Int=R.layout.activity_qestions_list) :
     BaseActivity<ActivityQestionsListBinding, QuestionViewModel>(), QuestionsListActivityNavigator, TextWatcher {
+
     override fun onDetailActivity(id: Int) {
         startActivity(Intent(this@QuestionsListActivity, DetailQuestionActivity::class.java)
             .putExtra("question_list_id",id))
