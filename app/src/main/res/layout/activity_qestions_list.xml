@@ -27,11 +27,10 @@
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="search..."
+            android:hint="@string/search"
             android:enabled="@{!viewModel.showProgressLayout}"
 
             />
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvQuestions"
@@ -42,7 +41,6 @@
             bind:recyclerAdapter="@{viewModel.questionListObservable}"
             bind:itemClick="@{viewModel}"
             />
-
 
 
 

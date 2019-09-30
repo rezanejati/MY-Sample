@@ -11,8 +11,8 @@ import io.reactivex.disposables.CompositeDisposable
  */
 abstract class BaseViewModel<N> : ViewModel() {
 
-    var showRertryLayout = ObservableField<Boolean>()
-    var showNoInternetLayout = ObservableField<Boolean>()
+    var showRertryLayout = ObservableField<Boolean>(false)
+    var showNoInternetLayout = ObservableField<Boolean>(false)
 
     var navigator: N? = null
 

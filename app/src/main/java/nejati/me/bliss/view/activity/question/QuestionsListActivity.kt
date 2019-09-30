@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_qestions_list.*
+import kotlinx.android.synthetic.main.activity_qestions_list.view.*
 import nejati.me.bliss.BR
 
 import nejati.me.bliss.R
@@ -69,7 +70,6 @@ class QuestionsListActivity(override var bindingVariable: Int=BR.viewModel,
         viewModel!!.callQuestionsHealth(viewModel!!.questionFilter)
         dataBinding!!.etSearch.addTextChangedListener(this)
         viewModel!!.questionListLiveData.observe(this, Observer<List<QuestionsResponse>> { s -> viewModel!!.setQuestionList(s) })
-
 
     }
 
