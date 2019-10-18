@@ -10,7 +10,7 @@
         <import type="android.view.View" />
         <variable
             name="viewModel"
-            type="nejati.me.bliss.viewModel.splash.SplashViewModel" />
+            type="nejati.me.sample.viewModel.splash.SplashViewModel" />
     </data>
 
     <RelativeLayout
@@ -41,13 +41,5 @@
             />
 
 
-        <ImageView
-            android:id="@+id/ivBlissLogo"
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/bliss"
-            tools:ignore="ContentDescription" />
     </RelativeLayout>
 </layout>

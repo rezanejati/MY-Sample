@@ -7,7 +7,7 @@
 
         <variable
             name="rerty"
-            type="nejati.me.bliss.base.BaseViewModel" />
+            type="nejati.me.sample.base.BaseViewModel" />
 
 
     </data>

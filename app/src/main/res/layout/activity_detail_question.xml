@@ -8,7 +8,7 @@
         <import type="android.view.View" />
         <variable
             name="viewModel"
-            type="nejati.me.bliss.viewModel.detail.DetailViewModel" />
+            type="nejati.me.sample.viewModel.detail.DetailViewModel" />
     </data>
 
     <RelativeLayout

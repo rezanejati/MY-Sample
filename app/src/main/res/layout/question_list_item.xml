@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="nejati.me.bliss.viewModel.questionList.QuestionItemViewModel" />
+            type="nejati.me.sample.viewModel.questionList.QuestionItemViewModel" />
 
     </data>
 

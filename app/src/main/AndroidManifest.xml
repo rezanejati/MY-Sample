@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="nejati.me.bliss">
+    package="nejati.me.sample">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".base.BaseApplication"
+        android:name="nejati.me.sample.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,12 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".view.activity.detail.DetailQuestionActivity"/>
+        <activity android:name="nejati.me.sample.view.activity.detail.DetailQuestionActivity"/>
         <activity
-            android:name=".view.activity.question.QuestionsListActivity"
+            android:name="nejati.me.sample.view.activity.question.QuestionsListActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".view.activity.splash.SplashActivity"
+            android:name="nejati.me.sample.view.activity.splash.SplashActivity"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
